@@ -1,0 +1,13 @@
+# to list the available bundles
+lcm-bundle-transfer-util --listBundles --productVersion 4.5.1.0 --sourceVersion 4.4.1.0 -du rashid.hussain@forces.gc.ca
+
+
+# command to download the bundles
+lcm-bundle-transfer-util --download --outputDirectory c:\VCF --productVersion 4.5.1.0 --sourceVersion 4.4.1.0 -du rashid.hussain@forces.gc.ca
+
+# command to download VxRail bundle
+lcm-bundle-transfer-util --download "downloadPartnerBundle" --outputDirectory c:\VCFVxRail -depotUser rashid.hussain@forces.gc.ca  --sv 4.4.1.0 --p 4.5.1.0 --pdu rashid.hussain@dellteam.com
+
+
+lcm-bundle-transfer-util --download "downloadPartnerBundle" --outputDirectory c:\VCFVxRail -depotUser rashid.hussain@forces.gc.ca  --sv 4.4.1.0 --p 4.5.1.0 --pdu hussar4
+
