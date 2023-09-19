@@ -1,0 +1,284 @@
+{
+    "global": {
+        "cluster_type": "STANDARD",
+        "cluster_management_netmask": "255.255.255.0",
+        "cluster_management_gateway": "50.50.51.1",
+        "cluster_vsan_netmask": "255.255.255.0",
+        "cluster_vmotion_netmask": "255.255.255.0",
+        "ntp_servers": [
+            "200.100.100.10"
+        ],
+        "is_internal_dns": false,
+        "dns_servers": [
+            "100.200.200.30",
+            "100.200.201.30"
+        ],
+        "syslog_servers": [],
+        "top_level_domain": "dnd.com",
+        "ha_isolation_addresses": []
+    },
+    "version": "7.0.450",
+    "hosts": [
+        {
+            "hostname": "site2-mgmt-cluster-esxi01",
+            "accounts": {
+                "root": {
+                    "username": "root",
+                    "password": ""
+                },
+                "management": {
+                    "username": "esximgmt",
+                    "password": ""
+                }
+            },
+            "geo_location": {
+                "rack_name": "",
+                "position": null
+            },
+            "network": [
+                {
+                    "type": "MANAGEMENT",
+                    "ip": "50.50.51.131"
+                },
+                {
+                    "type": "VSAN",
+                    "ip": "50.50.52.131"
+                },
+                {
+                    "type": "VMOTION",
+                    "ip": "50.50.53.131"
+                }
+            ],
+            "host_psnt": "DE300201305137"
+        },
+        {
+            "hostname": "site2-mgmt-cluster-esxi02",
+            "accounts": {
+                "root": {
+                    "username": "root",
+                    "password": ""
+                },
+                "management": {
+                    "username": "esximgmt",
+                    "password": ""
+                }
+            },
+            "geo_location": {
+                "rack_name": "",
+                "position": null
+            },
+            "network": [
+                {
+                    "type": "MANAGEMENT",
+                    "ip": "50.50.51.132"
+                },
+                {
+                    "type": "VSAN",
+                    "ip": "50.50.52.132"
+                },
+                {
+                    "type": "VMOTION",
+                    "ip": "50.50.53.132"
+                }
+            ],
+            "host_psnt": "DE300201305138"
+        },
+        {
+            "hostname": "site2-mgmt-cluster-esxi03",
+            "accounts": {
+                "root": {
+                    "username": "root",
+                    "password": ""
+                },
+                "management": {
+                    "username": "esximgmt",
+                    "password": ""
+                }
+            },
+            "geo_location": {
+                "rack_name": "",
+                "position": null
+            },
+            "network": [
+                {
+                    "type": "MANAGEMENT",
+                    "ip": "50.50.51.133"
+                },
+                {
+                    "type": "VSAN",
+                    "ip": "50.50.52.133"
+                },
+                {
+                    "type": "VMOTION",
+                    "ip": "50.50.53.133"
+                }
+            ],
+            "host_psnt": "DE300201305139"
+        },
+        {
+            "hostname": "site2-mgmt-cluster-esxi04",
+            "accounts": {
+                "root": {
+                    "username": "root",
+                    "password": ""
+                },
+                "management": {
+                    "username": "esximgmt",
+                    "password": ""
+                }
+            },
+            "geo_location": {
+                "rack_name": "",
+                "position": null
+            },
+            "network": [
+                {
+                    "type": "MANAGEMENT",
+                    "ip": "50.50.51.134"
+                },
+                {
+                    "type": "VSAN",
+                    "ip": "50.50.52.134"
+                },
+                {
+                    "type": "VMOTION",
+                    "ip": "50.50.53.134"
+                }
+            ],
+            "host_psnt": "DE300201305140"
+        }
+    ],
+    "vcenter": {
+        "vxrail_supplied_vc_ip": "50.50.51.40",
+        "vxrail_supplied_vc_name": "site2-m1-vc",
+        "accounts": {
+            "root": {
+                "username": "root",
+                "password": ""
+            },
+            "administrator": {
+                "username": "administrator@vsphere.local",
+                "password": ""
+            },
+            "management": {
+                "username": "m1c1_vxrmgmt",
+                "password": ""
+            }
+        },
+        "auto_accept_vc_cert": true,
+        "customer_supplied": false
+    },
+    "network": {
+        "nic_profile": "ADVANCED_VXRAIL_SUPPLIED_VDS",
+        "management_portgroup_binding_type": "EPHEMERAL",
+        "vds": [
+            {
+                "portgroups": [
+                    {
+                        "type": "VXRAILDISCOVERY",
+                        "vlan_id": 3939,
+                        "vmk_mtu": 1500,
+                        "load_balance_policy": "LOADBALANCE_SRCID",
+                        "failover_order": {
+                            "active": [
+                                "uplink1"
+                            ],
+                            "standby": [
+                                "uplink2"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "VXRAILSYSTEMVM",
+                        "vlan_id": 145,
+                        "load_balance_policy": "LOADBALANCE_SRCID",
+                        "failover_order": {
+                            "active": [
+                                "uplink1"
+                            ],
+                            "standby": [
+                                "uplink2"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "MANAGEMENT",
+                        "vlan_id": 145,
+                        "vmk_mtu": 1500,
+                        "load_balance_policy": "LOADBALANCE_SRCID",
+                        "failover_order": {
+                            "active": [
+                                "uplink1"
+                            ],
+                            "standby": [
+                                "uplink2"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "VSAN",
+                        "vlan_id": 146,
+                        "vmk_mtu": 9000,
+                        "load_balance_policy": "LOADBALANCE_SRCID",
+                        "failover_order": {
+                            "active": [
+                                "uplink2"
+                            ],
+                            "standby": [
+                                "uplink1"
+                            ]
+                        }
+                    },
+                    {
+                        "type": "VMOTION",
+                        "vlan_id": 147,
+                        "vmk_mtu": 9000,
+                        "load_balance_policy": "LOADBALANCE_SRCID",
+                        "failover_order": {
+                            "active": [
+                                "uplink1"
+                            ],
+                            "standby": [
+                                "uplink2"
+                            ]
+                        }
+                    }
+                ],
+                "mtu": 9000,
+                "nic_mappings": [
+                    {
+                        "uplinks": [
+                            {
+                                "name": "uplink1",
+                                "physical_nic": "vmnic0"
+                            },
+                            {
+                                "name": "uplink2",
+                                "physical_nic": "vmnic3"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "systemvm_portgroup_binding_type": "EPHEMERAL"
+    },
+    "vxrail_manager": {
+        "name": "site-mgmt-cluster-vrm",
+        "ip": "50.50.51.49",
+        "accounts": {
+            "root": {
+                "username": "root",
+                "password": ""
+            },
+            "service": {
+                "username": "mystic",
+                "password": ""
+            },
+            "support": {
+                "password": "",
+                "username": "service"
+            }
+        }
+    }
+}
